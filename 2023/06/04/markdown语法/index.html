@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="utf-8" />
-        <title>狐狸幻想乡</title>
+        <title>markdown语法 | 狐狸幻想乡</title>
         <meta name="author" content="一只小狐狸" />
         <meta name="description" content="一只小狐狸的博客" />
         <meta name="keywords" content="" />
@@ -32,7 +32,9 @@
 
 
 
-<script src="/js/lib/home.js"></script>
+
+
+
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -143,32 +145,11 @@
 
             <transition name="into">
                 <div id="main" v-show="!loading">
-                    <div id="home-head">
-    <div id="home-background" ref="homeBackground" data-images="/images/background.jpg"></div>
-    <div id="home-info" @click="homeClick">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>狐狸幻想乡</h1>
-                <h3></h3>
-                <h5>一只小狐狸的博客</h5>
-            </div>
-        </span>
+                    <div class="article">
+    <div>
+        <h1>markdown语法</h1>
     </div>
-</div>
-<div id="home-posts-wrap"  ref="homePostsWrap">
-    <div id="home-posts">
-        
-
-<div class="post">
-    <a href="/2023/06/04/markdown%E8%AF%AD%E6%B3%95/">
-        <h2 class="post-title">markdown语法</h2>
-    </a>
-    <div class="category-and-date">
-        
+    <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
@@ -178,10 +159,9 @@
         
         
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p><a href="#1-Markdown%E7%AE%80%E4%BB%8B">一、Markdown简介</a>  </p>
+    
+    <div class="content" v-pre>
+        <p><a href="#1-Markdown%E7%AE%80%E4%BB%8B">一、Markdown简介</a>  </p>
 <p><a href="#1-Markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95">二、Markdown常用语法</a>  </p>
 <p><a href="#11-%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98">2.1 文章目录</a>  </p>
 <p><a href="#12-%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98-title">2.1.1 TOC方法</a>  </p>
@@ -376,169 +356,13 @@
 </ul>
 <p> 计划任务<br> 已完成任务<br>附：参考文档<br>Markdown图表用法<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ZTH_G/article/details/130037570">https://blog.csdn.net/ZTH_G/article/details/130037570</a><br>————————————————<br>版权声明：本文为CSDN博主「ZTH_Zero」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ZTH_G/article/details/129913830">https://blog.csdn.net/ZTH_G/article/details/129913830</a></p>
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2023/06/04/markdown%E8%AF%AD%E6%B3%95/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/05/30/linux%E7%AC%94%E8%AE%B0/">
-        <h2 class="post-title">linux笔记</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/5/29
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h1 id="管理文件类型"><a href="#管理文件类型" class="headerlink" title="管理文件类型"></a>管理文件类型</h1><h2 id="ls-查看当前目录或文件"><a href="#ls-查看当前目录或文件" class="headerlink" title="ls 查看当前目录或文件"></a>ls 查看当前目录或文件</h2><p>-a ：显示当前目录下的所有文件和目录<br>-A ：显示所有文件和目录，但不显示当前目录“.”和上层目录“..”<br>-d：显示目录本身而不是目录下的内容。<br><u>-l：使用详细格式列表，显示类型、权限、所属用户、组等信息</u><br>-c：以更改时间排序，显示文件和目录。<br>-s：显示文件和目录的大小，以 blocks 为单位。  </p>
-<p><strong>pwd</strong> 查看当前文件  </p>
-<p><strong>cd</strong> 切换目录  </p>
-<h2 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h2><p><strong>cat</strong> 可以滚屏显示文件的内容</p>
-<p><strong>more和less</strong> 分屏查看，摁Q退出  </p>
-<p><strong>head和tail</strong>  查看一个文件开头或者结尾而非文件的全部内容  </p>
-<p><strong>grep</strong>  强大的文本搜索工具，并把匹配的好好打印出来  </p>
-<p><strong>touch</strong> 创建文件</p>
-<p><strong>mkdir</strong> 创建目录   </p>
-<h2 id="rmdir-删除目录"><a href="#rmdir-删除目录" class="headerlink" title="rmdir 删除目录"></a><u>rmdir</u> 删除目录</h2><p>-p:删除指定目录后，若该目录的上层目录已变成空目录，则将其一并删除  </p>
-<h2 id="rm-删除文件或目录"><a href="#rm-删除文件或目录" class="headerlink" title="rm 删除文件或目录"></a><u>rm</u> 删除文件或目录</h2><p>-f:强制删除文件或目录，不进行提示。<br>-i:删除既有文件或目录之前先询问用户。<br>-R:递归处理，将指定目录下的所有文件及子目录一并处理。  </p>
-<h2 id="cp-复制文件或目录"><a href="#cp-复制文件或目录" class="headerlink" title="cp  复制文件或目录"></a><u>cp</u>  复制文件或目录</h2><p>格式： <u>cp 参数 源文件 目标文件</u><br>-f:强行复制文件或目录，无论目标文件或目录是否已存在。<br>-l:对源文件建立硬连接，而非复制文件。<br>-S:对源文件建立符号连接，而非复制文件。<br>-R:递归处理，将指定目录下的所有文件与子目录一并处理。  </p>
-<h2 id="mv-用于对文件或目录进行移动或改名"><a href="#mv-用于对文件或目录进行移动或改名" class="headerlink" title="mv  用于对文件或目录进行移动或改名"></a><u>mv</u>  用于对文件或目录进行移动或改名</h2><p>格式： <u>mv 参数 源文件或目录 目标文件或目录</u><br>-f:若目标文件(目录)与现有的文件(目录)重复，则直接覆盖现有的文件(目录)<br>-i:覆盖前先询问用户。  </p>
-<p><u>hello*……*</u>： 指目录里关于前面有hello的名字包括全部</p>
-<p><u>硬链接</u>： 两个文件名指向的是硬盘上的同一块储存空间，对任何一个文件的修改将影响到另一个文件<br><u>软连接</u>： (符号链接），类似于快捷方式  </p>
-<p>ln  创建链接:<br>格式:ln 参数 源文件或目录 链接名称  </p>
-<p>-s:对源文件建立符号链接，而非硬链接。</p>
-<p>find  查找文件<br>格式:find 路径 匹配表达式</p>
-<p>权限的分类<br>Linux 文件的权限有如下几种:</p>
-<ol>
-<li>r(read):读取，对文件来说是读取内容，对目录来说是浏览目录内容。</li>
-<li>w(write):写入，对文件来说是修改文件内容，对目录来说是删除和修改目录内文件。</li>
-<li>x(execute):执行，对文件来说是执行文件，对目录来说是进入目录。 </li>
-<li>“_”:表示不具有该项权限。</li>
-</ol>
-<p>chmod  更改文件以及目录的权限<br>格式:chmod 选项 对权限的设定 文件或者目录<br>选项: g+x,o+w   给文件同组用户，其他用户添加写权限<br>o-rw  给文件其他用户删除读写权限<br>a+x  给文件所有者，用户组和其他用户添加执行权限<br>u&#x3D;rwx,g&#x3D;rw,o&#x3D;r  设定文件所有者读写执行权限、用户组读写权限,以及其他用户只读权限</p>
-<p>chowm  改变一个文件或者目录的所属用户(既拥有者)<br>格式:chown   用户名  文件或者目录<br>-R表示递归处理,当操作项是目录的时候,表示把目录中所有的文件以及子目录的拥有者</p>
-<p>chgrp  更改文件目录所属组<br>格式:chgrp  组名  文件或者目录</p>
-<p>umask  更改默认权限<br>格式:umask 002</p>
-<p>vi编辑器<br>vi new.txt 进入编辑器<br>vipw  直接查看etc&#x2F;passwd<br>vim 是vi的升级版</p>
-<p>实训3:<br>useradd  和 adduser 添加新用户<br>passwd  管理用户口令<br>usermod  修改用户信息<br>userdel  删除用户<br>su 切换登录用户<br>groupadd 添加用户组<br>usermod  修改组属性<br>groudel  删除组<br>gpasswd  管理组内用户</p>
-<p>实训四<br>fdisk -l  查看磁盘信息<br>fdisk常用命令说明如下:<br>d:删除一个分区。<br>l: 列出已知分区类型。<br>m:列出帮助菜单。<br>n:添加一个新分区。<br>p:显示分区表。<br>q:退出不保存<br>t:更改分区类型ID(如swap分区ID是82，ext4分区ID是83）<br>w:写入并退出</p>
-<p>mkfs.ext4➕主分区<br>ext4:扩展日志式文件系统，还有123的版本<br>mke2fs 默认创建的是ext2文件系统，添加-j参数才可以创建ext3文件系统</p>
-<p>mount  挂载命令<br>mount 选项 设备名称 挂载点目录<br>-t  指定挂载的文件系统类型<br>-r  以只读方式挂载</p>
-<p>df  查询挂载<br>-m  MB的单位<br>-Th  详细的显示内存信息</p>
-<p>umount  卸载挂载的文件系统</p>
-<p>让分区支持磁盘配额，编辑etc&#x2F;fstab文件，既要用户配额，又要支持组配额，需在磁盘上添加”usrquota”(用户配额），以及”grpquota”(用户组配额)，完成后重启</p>
-<p>quotacheck  检查添加了配额项的磁盘，并为磁盘建立一个当前磁盘用量表，以下命令一般全用<br>-a  扫描已添加usrquota或grpquota的分区<br>-g  检查文件系统中文件和目录的数目，创建aquota.group文件<br>-u  检查文件系统中文件和目录的数目，创建aquota.user文件<br>-v  显示命令执行过程</p>
-<p>edquota  设置用户和组的配额<br>edquota  选项  用户名｜组名<br>-u 设置用户磁盘配额，后接用户名<br>-g  设置组磁盘配额，后接组名</p>
-<p>quotaon  启动磁盘配额<br>quotaoff  关闭磁盘配额</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2023/05/30/linux%E7%AC%94%E8%AE%B0/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2023/05/27/hello-world/">
-        <h2 class="post-title">Hello World</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/5/27
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2023/05/27/hello-world/" class="go-post">阅读全文</a>
-</div>
-
-
-        <div class="page-current">
-    <div class="prev">
-        
-    </div>
-    <div class="page-index">
-        
-        <span class="current">1</span>
-        
-    </div>
-    <div class="next">
-        
-    </div>
-</div>
-
     </div>
     
-    <div id="home-card">
-        <div id="card-div">
-    <div class="card-style">
-        <div class="avatar">
-            <img src="/images/avatar.jpg" alt="avatar" />
-        </div>
-        <div class="name">一只小狐狸</div>
-        <div class="description">
-            <p>Description<br>…</p>
-
-        </div>
-        
-        
-        <div class="friend-links">
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://argvchs.github.io">Argvchs</a>
-            </div>
-            
-        </div>
-        
-    </div>
-</div>
-
-    </div>
+    
+    
+    
+    
+    
     
 </div>
 
@@ -571,6 +395,12 @@
             
         </div>
         <script src="/js/main.js"></script>
+        
+        
+
+
+
+
         
     </body>
 </html>
