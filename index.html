@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8" />
+        <title>狐狸幻想乡</title>
+        <meta name="author" content="一只小狐狸" />
+        <meta name="description" content="一位正在努力拼搏的学生！" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+<script src="/js/lib/home.js"></script>
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <div id="desktop-menu">
+        <a class="title" href="/">
+            <span>狐狸幻想乡</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;狐狸幻想乡</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </div>
+</nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <transition name="into">
+                <div id="main" v-show="!loading">
+                    <div id="home-head">
+    <div id="home-background" ref="homeBackground" data-images="/images/background.jpg"></div>
+    <div id="home-info" @click="homeClick">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>狐狸幻想乡</h1>
+                <h3>一只小狐狸的博客</h3>
+                <h5>一位正在努力拼搏的学生！</h5>
+            </div>
+        </span>
+    </div>
+</div>
+<div id="home-posts-wrap"  ref="homePostsWrap">
+    <div id="home-posts">
+        
+
+<div class="post">
+    <a href="/2023/06/04/markdown%E8%AF%AD%E6%B3%95/">
+        <h2 class="post-title">markdown语法</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/6/3
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <ul>
+<li><p><a href="#%E4%B8%80markdown%E7%AE%80%E4%BB%8B">一、Markdown简介</a>  </p>
+</li>
+<li><p><a href="#%E4%BA%8Cmarkdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95">二、Markdown常用语法</a>  </p>
+</li>
+<li><p><a href="#21-%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95">2.1 文章目录</a>  </p>
+<ul>
+<li><p><a href="#211-toc%E6%96%B9%E6%B3%95">2.1.1 TOC方法</a>  </p>
+</li>
+<li><p><a href="#212-%E6%89%8B%E5%8A%A8%E7%94%9F%E6%88%90%E7%9B%AE%E5%BD%95">2.1.2 手动生成目录</a></p>
+</li>
+</ul>
+</li>
+<li><p><a href="#22-%E6%A0%87%E9%A2%98">2.2 标题</a>  </p>
+</li>
+<li><p><a href="#23-%E6%AE%B5%E8%90%BD">2.3 段落</a>  </p>
+<ul>
+<li><p><a href="#231-%E9%A6%96%E8%A1%8C%E7%BC%A9%E8%BF%9B">2.3.1 首行缩进</a>  </p>
+</li>
+<li><p><a href="#232-%E5%AD%97%E4%BD%93">2.3.2 字体</a>  </p>
+<ul>
+<li><p><a href="#2321-%E5%AD%97%E4%BD%93%E5%8A%A0%E7%B2%97">2.3.2.1 字体加粗</a> </p>
+</li>
+<li><p><a href="#2322-%E6%96%9C%E4%BD%93">2.3.2.2 斜体</a>  </p>
+</li>
+<li><p><a href="#2323-%E7%B2%97%E6%96%9C%E4%BD%93">2.3.2.3 粗斜体</a>  </p>
+</li>
+<li><p><a href="#2324-%E5%88%A0%E9%99%A4%E7%BA%BF">2.3.2.4 删除线</a> </p>
+</li>
+<li><p><a href="#2325-%E4%B8%8B%E5%88%92%E7%BA%BF">2.3.2.5 下划线</a>  </p>
+</li>
+<li><p><a href="#2326-%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2">2.3.2.6 字体颜色</a>  </p>
+</li>
+<li><p><a href="#2327-%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F">2.3.2.7 字体大小</a>  </p>
+</li>
+<li><p><a href="#2328-%E5%AD%97%E4%BD%93%E9%AB%98%E4%BA%AE">2.3.2.8 字体高亮</a></p>
+</li>
+</ul>
+</li>
+<li><p><a href="#233-%E5%88%86%E9%9A%94%E7%BA%BF">2.3.3 分隔线</a>  </p>
+</li>
+<li><p><a href="#234-%E6%8D%A2%E8%A1%8C">2.3.4 换行</a>  </p>
+</li>
+<li><p><a href="#235-%E6%96%87%E5%AD%97%E5%B1%85%E4%B8%AD">2.3.5 文字居中</a></p>
+</li>
+</ul>
+</li>
+<li><p><a href="#24-%E8%84%9A%E6%B3%A8">2.4 脚注</a>  </p>
+</li>
+<li><p><a href="#25-%E5%88%97%E8%A1%A8">2.5 列表</a> </p>
+<ul>
+<li><p><a href="#251-%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8">2.5.1 有序列表</a>  </p>
+</li>
+<li><p><a href="#252-%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8">2.5.2 无序列表</a> </p>
+</li>
+<li><p><a href="#253-%E5%88%97%E8%A1%A8%E5%B5%8C%E5%A5%97">2.5.3 列表嵌套</a></p>
+</li>
+</ul>
+</li>
+<li><p><a href="#26-%E5%BC%95%E7%94%A8">2.6 引用</a>  </p>
+</li>
+<li><p><a href="#27-%E4%BB%A3%E7%A0%81%E6%A1%86">2.7 代码框</a>  </p>
+</li>
+<li><p><a href="#28-%E9%93%BE%E6%8E%A5">2.8 链接</a>  </p>
+</li>
+<li><p><a href="#29-%E5%9B%BE%E7%89%87">2.9 图片</a>  </p>
+</li>
+<li><p><a href="#210-%E8%A1%A8%E6%A0%BC">2.10 表格</a>  </p>
+</li>
+<li><p><a href="#211-%E9%94%9A%E7%82%B9">2.11 锚点</a>  </p>
+</li>
+<li><p><a href="#212-%E4%B8%8A%E6%A0%87%E4%B8%8E%E4%B8%8B%E6%A0%87">2.12 上标与下标</a>  </p>
+</li>
+<li><p><a href="#213-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9">2.13 待办事项</a></p>
+</li>
+</ul>
+<p><a href="#%E9%99%84%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3">附：参考文档</a></p>
+<p>————————————————</p>
+<h1 id="一、Markdown简介"><a href="#一、Markdown简介" class="headerlink" title="一、Markdown简介"></a>一、Markdown简介</h1><p>  Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）。它允许人们使用易读易写的纯文本格式编写文档，然后转换成有效的 XHTML（或者HTML）文档。Markdown支持HTML语法。  </p>
+<h1 id="二、Markdown常用语法"><a href="#二、Markdown常用语法" class="headerlink" title="二、Markdown常用语法"></a>二、Markdown常用语法</h1><h1 id="2-1-文章目录"><a href="#2-1-文章目录" class="headerlink" title="2.1 文章目录"></a>2.1 文章目录</h1><h2 id="2-1-1-TOC方法"><a href="#2-1-1-TOC方法" class="headerlink" title="2.1.1 TOC方法"></a>2.1.1 TOC方法</h2><p>  TOC全称为Table of Content，自动列出全部标题。在文章开头使用[TOC]即可自动生成文章目录。</p>
+<h2 id="2-1-2-手动生成目录"><a href="#2-1-2-手动生成目录" class="headerlink" title="2.1.2 手动生成目录"></a>2.1.2 手动生成目录</h2><p>  将「列表」和「页内超链接」相结合，但有些Markdown编辑器不支持，有点类似于HTML的锚点。<br>语法格式：</p>
+<p><a href="#%E6%A0%87%E9%A2%98%E9%93%BE%E6%8E%A5">目录名</a><br>规则：</p>
+<p>标题链接格式为： 一个#+被链接标题。<br>标题链接中不能出现大写字母，大写字母用小写字母代替。<br>标题链接中不能出现空格 ，空格 用-代替。<br>目录排布由有序列表或无序列表控制<br>跳转与目录名无关，标题和标题链接符合规则即可<br>例子（只在VsCode上测试可行）：  </p>
+<p>&#x2F;&#x2F; 目录<br>[1 一级标题] (#1-一级标题)</p>
+<p>[1.1 二级标题] (#11-二级标题)</p>
+<p>[1.2 二级标题] (#12-二级标题-title)</p>
+<p>[1.3 二级标题] (#13-二-级-标-题-space-test)</p>
+<p>&#x2F;&#x2F; 标题<br>#1 一级标题<br>##1.1 二级标题<br>##1.2 二级标题 Title<br>##1.3 二 级 标 题 Space Test<br>以上记得在 <strong>#</strong> 后面空行</p>
+<h2 id="2-2-标题"><a href="#2-2-标题" class="headerlink" title="2.2 标题"></a>2.2 标题</h2><p>  使用#号表示1~6级标题，一级标题对应一个#号，二级标题对应两个#号，以此类推。#号与标题名之间要保留一个空格。语法格式：</p>
+<p>#一级标题<br>##二级标题<br>###三级标题<br>####四级标题<br>#####五级标题<br>######六级标题   </p>
+<p>记得在 **#**后面空行</p>
+<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><h3 id="3"><a href="#3" class="headerlink" title="3"></a>3</h3><h4 id="4"><a href="#4" class="headerlink" title="4"></a>4</h4><h5 id="5"><a href="#5" class="headerlink" title="5"></a>5</h5><h6 id="6"><a href="#6" class="headerlink" title="6"></a>6</h6><p>显示效果就不展示了，会影响整篇文章目录结构</p>
+<h2 id="2-3-段落"><a href="#2-3-段落" class="headerlink" title="2.3 段落"></a>2.3 段落</h2><h2 id="2-3-1-首行缩进"><a href="#2-3-1-首行缩进" class="headerlink" title="2.3.1 首行缩进"></a>2.3.1 首行缩进</h2><p>  Markdown的段落没有特殊的格式，书写中文时，需要首行空两格，可通过&amp;emsp;实现，一个&amp;emsp;即为一个中文字符的宽度。语法格式：</p>
+<p>&amp;emsp;&amp;emsp;首行空两格<br>&amp;emsp;&amp;emsp;1<br>显示效果如下：</p>
+<p>  &amp; emsp;&amp; emsp;接文字  &amp;没有空行<br>第二行<br>&amp;ensp;：占据的宽度正好是半个中文宽度<br>&amp;emsp;：占据的宽度正好是1个中文宽度  </p>
+<h2 id="2-3-2-字体"><a href="#2-3-2-字体" class="headerlink" title="2.3.2 字体"></a>2.3.2 字体</h2><h2 id="2-3-2-1-字体加粗"><a href="#2-3-2-1-字体加粗" class="headerlink" title="2.3.2.1 字体加粗"></a>2.3.2.1 字体加粗</h2><p>  使用2个*号或者下划线_表示粗体。语法格式：</p>
+<p><strong>粗体样式文字</strong><br><strong>粗体样式文字</strong> </p>
+<p>显示效果如下：</p>
+<p><strong>粗体文字</strong><br><strong>粗体文字</strong></p>
+<h2 id="2-3-2-2-斜体"><a href="#2-3-2-2-斜体" class="headerlink" title="2.3.2.2 斜体"></a>2.3.2.2 斜体</h2><p>  使用1个*号或者下划线_表示斜体。语法格式：</p>
+<p><em>斜体样式文字</em><br><em>斜体样式文字</em><br>显示效果如下：</p>
+<p>斜体样式文字<br>斜体样式文字</p>
+<h2 id="2-3-2-3-粗斜体"><a href="#2-3-2-3-粗斜体" class="headerlink" title="2.3.2.3 粗斜体"></a>2.3.2.3 粗斜体</h2><p>  使用3个*号或者下划线_表示粗斜体。语法格式：</p>
+<p> 3个* 粗斜体样式文字***<br> 3个下划线_粗斜体样式文字___<br><em><strong>1</strong></em><br><em><strong>2</strong></em><br>显示效果如下：</p>
+<p><em><strong>粗斜体样式文字</strong></em><br><em><strong>粗斜体样式文字</strong></em></p>
+<h2 id="2-3-2-4-删除线"><a href="#2-3-2-4-删除线" class="headerlink" title="2.3.2.4 删除线"></a>2.3.2.4 删除线</h2><p>  使用2个~号表示删除线。语法格式：</p>
+<p>~~删除样式文字~ ~<br>显示效果如下：</p>
+<p><del>删除样式文字</del></p>
+<h2 id="2-3-2-5-下划线"><a href="#2-3-2-5-下划线" class="headerlink" title="2.3.2.5 下划线"></a>2.3.2.5 下划线</h2><p>  下划线可通过HTML的&lt; u&gt;标签来表示,结尾用&lt;&#x2F; u&gt;,<em><strong>里面没有空行！！！</strong></em><br>语法格式：</p>
+<p> &lt; u&gt;   &lt; &#x2F;u&gt;  </p>
+<p>显示效果如下：</p>
+<p><u>带下划线文本</u></p>
+<h2 id="2-3-2-6-字体颜色"><a href="#2-3-2-6-字体颜色" class="headerlink" title="2.3.2.6 字体颜色"></a>2.3.2.6 字体颜色</h2><p>  字体颜色可通过HTML的<font>标签来表示。语法格式：</font></p>
+<p>&#x2F;&#x2F; 0x######表示0x000000~0xFFFFFF之间任意数值，也可以是red, green, bule等表示颜色的英文单词<br><font color="0x######">字体颜色</font><br>1<br>2<br>显示效果如下：</p>
+<p>红色字体</p>
+<h2 id="2-3-2-7-字体大小"><a href="#2-3-2-7-字体大小" class="headerlink" title="2.3.2.7 字体大小"></a>2.3.2.7 字体大小</h2><p>  字体大小也可通过HTML的<font>标签来表示。语法格式：</font></p>
+<p><font size="5">字体大小</font> 					&#x2F;&#x2F; size范围要求在[0, 7]，数字越大，字体越大，超过7，按最大字体显示<br><span style="font-size:#px;">字体大小</span>		&#x2F;&#x2F; #号表示任意整数，可任意设置像素字体的大小<br>1<br>2<br>显示效果如下<br>字体大小</p>
+<h2 id="2-3-2-8-字体高亮"><a href="#2-3-2-8-字体高亮" class="headerlink" title="2.3.2.8 字体高亮"></a>2.3.2.8 字体高亮</h2><p>  字体高亮可通过2对&#x3D;号实现，也可通过HTML的<mark>标签来表示.语法格式：</mark></p>
+<p>&#x3D;&#x3D;字体高亮&#x3D;&#x3D;<br><mark>字体高亮</mark><br>1<br>2<br>显示效果如下：</p>
+<p>字体高亮<br>字体高亮</p>
+<h2 id="2-3-3-分隔线"><a href="#2-3-3-分隔线" class="headerlink" title="2.3.3 分隔线"></a>2.3.3 分隔线</h2><p>  使用3个或3个以上连续的*号、-号、_号表示分隔线。语法格式：</p>
+<hr>
+<hr>
+<hr>
+<p>1<br>2<br>3<br>显示效果如下：</p>
+<h2 id="2-3-4-换行"><a href="#2-3-4-换行" class="headerlink" title="2.3.4 换行"></a>2.3.4 换行</h2><p>  在需要换行的位置中添加<br>标签，即可达到换行的效果。语法格式：</p>
+<p>明月几时有，<br>把酒问青天。<br>不知天上宫阙，<br>今夕是何年。<br>1<br>显示效果如下：</p>
+<p>明月几时有，<br>把酒问青天。<br>不知天上宫阙，<br>今夕是何年。</p>
+<h2 id="2-3-5-文字居中"><a href="#2-3-5-文字居中" class="headerlink" title="2.3.5 文字居中"></a>2.3.5 文字居中</h2><p>  文字居中可通过HTML的<div>标签实现。语法格式：</div></p>
+<div align="center">文字居中显示</div>
+1
+显示效果如下：
+
+<p>文字居中显示<br>同理，文字居左，居右也可通过该方式实现，只需将align的值替换成left，right。</p>
+<h2 id="2-4-脚注"><a href="#2-4-脚注" class="headerlink" title="2.4 脚注"></a>2.4 脚注</h2><p>  脚注是对文本的补充说明。语法格式：</p>
+<p>脚注一[^footNote1]<br>脚注二[^footNote2]<br>[^footNote1]: 脚注一的内容<br>[^footNote2]: 脚注二的内容<br>1<br>2<br>3<br>4<br>显示效果如下：</p>
+<p>脚注一1<br>脚注二2</p>
+<h2 id="2-5-列表"><a href="#2-5-列表" class="headerlink" title="2.5 列表"></a>2.5 列表</h2><p>  Markdown支持有序列表和无序列表。</p>
+<h2 id="2-5-1-有序列表"><a href="#2-5-1-有序列表" class="headerlink" title="2.5.1 有序列表"></a>2.5.1 有序列表</h2><p>  有序列表直接在文字有加上1. 2. 3. 来表示，符号和文字之间加上一个空格字符。语法格式：</p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项<br>1<br>2<br>3<br>显示效果如下：</li>
+</ol>
+<p>第一项<br>第二项<br>第三项</p>
+<h2 id="2-5-2-无序列表"><a href="#2-5-2-无序列表" class="headerlink" title="2.5.2 无序列表"></a>2.5.2 无序列表</h2><p>  无序列表无序列表使用星号(*)、加号(+)或者减号(-)作为标记。语法格式：</p>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+</ul>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+</ul>
+<ul>
+<li>第一项</li>
+<li>第二项<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>显示效果如下：</li>
+</ul>
+<p>第一项<br>第二项<br>第一项<br>第二项<br>第一项<br>第二项</p>
+<h2 id="2-5-3-列表嵌套"><a href="#2-5-3-列表嵌套" class="headerlink" title="2.5.3 列表嵌套"></a>2.5.3 列表嵌套</h2><p>  列表嵌套只需在子列表的选项前添加四个空格即可。语法格式：</p>
+<ol>
+<li>第一项<ul>
+<li>第一个元素</li>
+<li>第二个元素</li>
+</ul>
+</li>
+<li>第二项<ul>
+<li>第一个元素</li>
+<li>第二个元素<br>1<br>2<br>3<br>4<br>5<br>6<br>显示效果如下：</li>
+</ul>
+</li>
+</ol>
+<p>第一项<br>第一个元素<br>第二个元素<br>第二项<br>第一个元素<br>第二个元素</p>
+<h2 id="2-6-引用"><a href="#2-6-引用" class="headerlink" title="2.6 引用"></a>2.6 引用</h2><p>  在段落开头使用&gt;符号，后面紧跟着一个空格符号，来表示引用。需要多级引用，则使用多个&gt;符号。语法格式：</p>
+<blockquote>
+<p>一级引用</p>
+<blockquote>
+<p>二级引用<br>1<br>2<br>显示效果如下：</p>
+</blockquote>
+</blockquote>
+<p>一级引用</p>
+<p>二级引用</p>
+<h2 id="2-7-代码框"><a href="#2-7-代码框" class="headerlink" title="2.7 代码框"></a>2.7 代码框</h2><p>如果是一个函数或者一行代码，可以使用1对 &#96; 号将其包起来。语法格式：</p>
+<p>  <code>fun()</code>函数<br>1<br>显示效果如下：</p>
+<p>fun()函数</p>
+<p>如果是一段代码，代码量较多，可以使用连续的3对 &#96; 号将其包起来，并且可以指定一种语言。语法格式：</p>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Hello Markdown&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1<br>2<br>3<br>4<br>5<br>6<br>显示效果如下：</p>
+<p>int main()<br>{<br>    std::cout &lt;&lt; “Hello Markdown”;<br>}<br>1<br>2<br>3<br>4</p>
+<h2 id="2-8-链接"><a href="#2-8-链接" class="headerlink" title="2.8 链接"></a>2.8 链接</h2><p>  语法格式：</p>
+<p><a href="%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80">链接名称</a>		&#x2F;&#x2F; <a target="_blank" rel="noopener" href="https://www.csdn.net/">CSDN主页</a><br>&lt;链接地址&gt;				&#x2F;&#x2F; <a target="_blank" rel="noopener" href="https://www.csdn.net/">https://www.csdn.net</a><br>1<br>2<br>显示效果如下：</p>
+<p>CSDN主页<br><a target="_blank" rel="noopener" href="https://www.csdn.net/">https://www.csdn.net</a></p>
+<h2 id="2-9-图片"><a href="#2-9-图片" class="headerlink" title="2.9 图片"></a>2.9 图片</h2><p>  语法格式：</p>
+<p>· <img src="/%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5" alt="图片描述"> 		&#x2F;&#x2F; 图片链接：可以网络图片地址，也可以是本地图片地址。本地图片地址的路径方向为&#x2F;</p>
+<p>· <img src="/2023/06/04/markdown%E8%AF%AD%E6%B3%95/png;base64,Base64编码文本" alt="图片描述">	&#x2F;&#x2F; 图片转为Base64编码显示</p>
+<p>· ![图片描述][图片资源]<br>  &#x2F;&#x2F; 放在文章末尾<br>  [图片资源]:data:image&#x2F;png;base64,Base64编码文本<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>图片居左显示。图片链接后加上#pic_left，如：<img src="https://img-blog.csdnimg.cn/img_convert/da0d7042b2fbfc13929ddda265ef2da6.png#pic_left" alt="CSDN图标">，也可通过HTML的<div>标签实现，语法格式：<div align="left"><img src="https://img-blog.csdnimg.cn/img_convert/da0d7042b2fbfc13929ddda265ef2da6.png"></div>。<br>显示效果如下：</div></p>
+<p>图片居中显示。图片链接后加上#pic_center，如：<img src="https://img-blog.csdnimg.cn/img_convert/da0d7042b2fbfc13929ddda265ef2da6.png#pic_center" alt="CSDN图标">，也可通过HTML的<div>标签实现，语法格式：<div align="center"><img src="https://img-blog.csdnimg.cn/img_convert/da0d7042b2fbfc13929ddda265ef2da6.png"></div>。<br>显示效果如下：</div></p>
+<p>图片居右显示。图片链接后加上#pic_right，如：<img src="https://img-blog.csdnimg.cn/img_convert/da0d7042b2fbfc13929ddda265ef2da6.png#pic_right" alt="CSDN图标">，也可通过HTML的<div>标签实现，语法格式：<div align="right"><img src="https://img-blog.csdnimg.cn/img_convert/da0d7042b2fbfc13929ddda265ef2da6.png"></div>。<br>显示效果如下：</div></p>
+<p>扩展： 需要设置图片宽高，可通过HTML的<div>标签实现，增加width，height项实现，如：<div align="left"><img width="100" height="50" src="https://img-blog.csdnimg.cn/img_convert/da0d7042b2fbfc13929ddda265ef2da6.png"></div></div></p>
+<h2 id="2-10-表格"><a href="#2-10-表格" class="headerlink" title="2.10 表格"></a>2.10 表格</h2><p>  Markdown制作表格使用|来分隔不同的单元格，使用-来分隔表头和其他行。<br>对齐方式：</p>
+<p>:—- 设置内容和标题栏左对齐<br>:—: 设置内容和标题栏居中对齐<br>—-: 设置内容和标题栏右对齐<br>1<br>2<br>3<br>语法格式：</p>
+<table>
+<thead>
+<tr>
+<th align="center">表 头 1</th>
+<th align="left">表 头 2</th>
+<th align="right">表头3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">居中对齐</td>
+<td align="left">左对齐</td>
+<td align="right">右对齐</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="center">显示效果如下：</td>
+<td align="left"></td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<p>表 头 1	表 头 2	表头3<br>居中对齐	左对齐	右对齐<br>注： 也可使用HTML的<table>标签来创建表格，可以实现单元格合并等一些较为复杂的操作。</table></p>
+<h2 id="2-11-锚点"><a href="#2-11-锚点" class="headerlink" title="2.11 锚点"></a>2.11 锚点</h2><p>  Markdown的语法是不支持锚点的，但可以使用HTML的锚点语法，实现页面中跳转。语法格式：</p>
+<p><a href="jump">链接说明文字</a><br>在需要跳转到的位置增加如下代码：<br><a id="jump">跳转</a><br>1<br>2<br>3<br>显示效果如下：</p>
+<p><a href="#test">跳转到：测试</a><br>| -<br>| –<br>| —<br>| —-<br>| —–<br>| ——<br><a id="test">测试</a><br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>跳转到：测试<br>| -<br>| –<br>| —<br>| —-<br>| —–<br>| ——<br>测试</p>
+<h2 id="2-12-上标与下标"><a href="#2-12-上标与下标" class="headerlink" title="2.12 上标与下标"></a>2.12 上标与下标</h2><p>  使用^号表示上标，使用~号表示下标。语法格式：</p>
+<p>文本^上标^<br>文本<del>下标</del><br>1<br>2<br>显示效果如下：</p>
+<p>文本上标<br>文本下标</p>
+<h2 id="2-13-待办事项"><a href="#2-13-待办事项" class="headerlink" title="2.13 待办事项"></a>2.13 待办事项</h2><p>  待办事项使用- [ ]形式表示，-与[之间，]与文本之间需要使用空格 隔开，中括号[]内，使用空格 表示计划任务，字母x表示已完成任务。语法格式：</p>
+<ul>
+<li><input disabled type="checkbox"> 计划任务</li>
+<li><input checked disabled type="checkbox"> 已完成任务<br>1<br>2<br>显示效果如下：</li>
+</ul>
+<p> 计划任务  </p>
+<p> 已完成任务  </p>
+<h2 id="附：参考文档"><a href="#附：参考文档" class="headerlink" title="附：参考文档"></a>附：参考文档</h2><p>Markdown图表用法  </p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ZTH_G/article/details/130037570">https://blog.csdn.net/ZTH_G/article/details/130037570</a><br>————————————————</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2023/06/04/markdown%E8%AF%AD%E6%B3%95/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/05/30/linux%E7%AC%94%E8%AE%B0/">
+        <h2 class="post-title">linux笔记</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/5/29
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h1 id="管理文件类型"><a href="#管理文件类型" class="headerlink" title="管理文件类型"></a>管理文件类型</h1><h2 id="ls-查看当前目录或文件"><a href="#ls-查看当前目录或文件" class="headerlink" title="ls 查看当前目录或文件"></a>ls 查看当前目录或文件</h2><p>-a ：显示当前目录下的所有文件和目录<br>-A ：显示所有文件和目录，但不显示当前目录“.”和上层目录“..”<br>-d：显示目录本身而不是目录下的内容。<br><u>-l：使用详细格式列表，显示类型、权限、所属用户、组等信息</u><br>-c：以更改时间排序，显示文件和目录。<br>-s：显示文件和目录的大小，以 blocks 为单位。  </p>
+<p><strong>pwd</strong> 查看当前文件  </p>
+<p><strong>cd</strong> 切换目录  </p>
+<p><img src="/2023/05/30/linux%E7%AC%94%E8%AE%B0/mm.jpg" alt="mm"></p>
+<h2 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h2><p><strong>cat</strong> 可以滚屏显示文件的内容</p>
+<p><strong>more和less</strong> 分屏查看，摁Q退出  </p>
+<p><strong>head和tail</strong>  查看一个文件开头或者结尾而非文件的全部内容  </p>
+<p><strong>grep</strong>  强大的文本搜索工具，并把匹配的好好打印出来  </p>
+<p><strong>touch</strong> 创建文件</p>
+<p><strong>mkdir</strong> 创建目录   </p>
+<h2 id="rmdir-删除目录"><a href="#rmdir-删除目录" class="headerlink" title="rmdir 删除目录"></a><u>rmdir</u> 删除目录</h2><p>-p:删除指定目录后，若该目录的上层目录已变成空目录，则将其一并删除  </p>
+<h2 id="rm-删除文件或目录"><a href="#rm-删除文件或目录" class="headerlink" title="rm 删除文件或目录"></a><u>rm</u> 删除文件或目录</h2><p>-f:强制删除文件或目录，不进行提示。<br>-i:删除既有文件或目录之前先询问用户。<br>-R:递归处理，将指定目录下的所有文件及子目录一并处理。  </p>
+<h2 id="cp-复制文件或目录"><a href="#cp-复制文件或目录" class="headerlink" title="cp  复制文件或目录"></a><u>cp</u>  复制文件或目录</h2><p>格式： <u>cp 参数 源文件 目标文件</u><br>-f:强行复制文件或目录，无论目标文件或目录是否已存在。<br>-l:对源文件建立硬连接，而非复制文件。<br>-S:对源文件建立符号连接，而非复制文件。<br>-R:递归处理，将指定目录下的所有文件与子目录一并处理。  </p>
+<h2 id="mv-用于对文件或目录进行移动或改名"><a href="#mv-用于对文件或目录进行移动或改名" class="headerlink" title="mv  用于对文件或目录进行移动或改名"></a><u>mv</u>  用于对文件或目录进行移动或改名</h2><p>格式： <u>mv 参数 源文件或目录 目标文件或目录</u><br>-f:若目标文件(目录)与现有的文件(目录)重复，则直接覆盖现有的文件(目录)<br>-i:覆盖前先询问用户。  </p>
+<p><u>hello*……*</u>： 指目录里关于前面有hello的名字包括全部</p>
+<p><u>硬链接</u>： 两个文件名指向的是硬盘上的同一块储存空间，对任何一个文件的修改将影响到另一个文件<br><u>软连接</u>： (符号链接），类似于快捷方式  </p>
+<p>ln  创建链接:<br>格式:ln 参数 源文件或目录 链接名称  </p>
+<p>-s:对源文件建立符号链接，而非硬链接。</p>
+<p>find  查找文件<br>格式:find 路径 匹配表达式</p>
+<p>权限的分类<br>Linux 文件的权限有如下几种:</p>
+<ol>
+<li>r(read):读取，对文件来说是读取内容，对目录来说是浏览目录内容。</li>
+<li>w(write):写入，对文件来说是修改文件内容，对目录来说是删除和修改目录内文件。</li>
+<li>x(execute):执行，对文件来说是执行文件，对目录来说是进入目录。 </li>
+<li>“_”:表示不具有该项权限。</li>
+</ol>
+<p>chmod  更改文件以及目录的权限<br>格式:chmod 选项 对权限的设定 文件或者目录<br>选项: g+x,o+w   给文件同组用户，其他用户添加写权限<br>o-rw  给文件其他用户删除读写权限<br>a+x  给文件所有者，用户组和其他用户添加执行权限<br>u&#x3D;rwx,g&#x3D;rw,o&#x3D;r  设定文件所有者读写执行权限、用户组读写权限,以及其他用户只读权限</p>
+<p>chowm  改变一个文件或者目录的所属用户(既拥有者)<br>格式:chown   用户名  文件或者目录<br>-R表示递归处理,当操作项是目录的时候,表示把目录中所有的文件以及子目录的拥有者</p>
+<p>chgrp  更改文件目录所属组<br>格式:chgrp  组名  文件或者目录</p>
+<p>umask  更改默认权限<br>格式:umask 002</p>
+<p>vi编辑器<br>vi new.txt 进入编辑器<br>vipw  直接查看etc&#x2F;passwd<br>vim 是vi的升级版</p>
+<p>实训3:<br>useradd  和 adduser 添加新用户<br>passwd  管理用户口令<br>usermod  修改用户信息<br>userdel  删除用户<br>su 切换登录用户<br>groupadd 添加用户组<br>usermod  修改组属性<br>groudel  删除组<br>gpasswd  管理组内用户</p>
+<p>实训四<br>fdisk -l  查看磁盘信息<br>fdisk常用命令说明如下:<br>d:删除一个分区。<br>l: 列出已知分区类型。<br>m:列出帮助菜单。<br>n:添加一个新分区。<br>p:显示分区表。<br>q:退出不保存<br>t:更改分区类型ID(如swap分区ID是82，ext4分区ID是83）<br>w:写入并退出</p>
+<p>mkfs.ext4➕主分区<br>ext4:扩展日志式文件系统，还有123的版本<br>mke2fs 默认创建的是ext2文件系统，添加-j参数才可以创建ext3文件系统</p>
+<p>mount  挂载命令<br>mount 选项 设备名称 挂载点目录<br>-t  指定挂载的文件系统类型<br>-r  以只读方式挂载</p>
+<p>df  查询挂载<br>-m  MB的单位<br>-Th  详细的显示内存信息</p>
+<p>umount  卸载挂载的文件系统</p>
+<p>让分区支持磁盘配额，编辑etc&#x2F;fstab文件，既要用户配额，又要支持组配额，需在磁盘上添加”usrquota”(用户配额），以及”grpquota”(用户组配额)，完成后重启</p>
+<p>quotacheck  检查添加了配额项的磁盘，并为磁盘建立一个当前磁盘用量表，以下命令一般全用<br>-a  扫描已添加usrquota或grpquota的分区<br>-g  检查文件系统中文件和目录的数目，创建aquota.group文件<br>-u  检查文件系统中文件和目录的数目，创建aquota.user文件<br>-v  显示命令执行过程</p>
+<p>edquota  设置用户和组的配额<br>edquota  选项  用户名｜组名<br>-u 设置用户磁盘配额，后接用户名<br>-g  设置组磁盘配额，后接组名</p>
+<p>quotaon  启动磁盘配额<br>quotaoff  关闭磁盘配额</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2023/05/30/linux%E7%AC%94%E8%AE%B0/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/05/27/hello-world/">
+        <h2 class="post-title">Hello World</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/5/27
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2023/05/27/hello-world/" class="go-post">阅读全文</a>
+</div>
+
+
+        <div class="page-current">
+    <div class="prev">
+        
+    </div>
+    <div class="page-index">
+        
+        <span class="current">1</span>
+        
+    </div>
+    <div class="next">
+        
+    </div>
+</div>
+
+    </div>
+    
+    <div id="home-card">
+        <div id="card-div">
+    <div class="card-style">
+        <div class="avatar">
+            <img src="/images/avatar.jpg" alt="avatar" />
+        </div>
+        <div class="name">一只小狐狸</div>
+        <div class="description">
+            <p>Description<br>…</p>
+
+        </div>
+        
+        
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://argvchs.github.io">Argvchs</a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+    </div>
+    
+</div>
+
+                    <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 狐狸幻想乡
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;一只小狐狸
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+                </div>
+            </transition>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+    </body>
+</html>
